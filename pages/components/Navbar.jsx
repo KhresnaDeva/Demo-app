@@ -1,8 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Authorization from "./Authorization";
 
-const Navbar = () => {
+const Navbar = ({iam}) => {
   return (
     <div>
       <nav className="bg-black/60 text-white top-10 left-10 w-full z-50">
@@ -15,7 +14,7 @@ const Navbar = () => {
               role="link"
               type="button"
               className="block bg-green-500 px-4 py-2 font-bold hover:bg-green-600 text-sm rounded-lg">
-              <authorization href="/Redirect">LOGIN</authorization>
+              <Link href={iam.iam.redirect()}>LOGIN</Link>
             </button>
           </div>
         </div>
