@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Authorization from "./Authorization";
 
 const Navbar = () => {
   return (
@@ -13,9 +14,8 @@ const Navbar = () => {
             <button
               role="link"
               type="button"
-              className="block bg-green-500 px-4 py-2 font-bold hover:bg-green-600 text-sm rounded-lg"
-            >
-              <Link href="/login">LOGIN</Link>
+              className="block bg-green-500 px-4 py-2 font-bold hover:bg-green-600 text-sm rounded-lg">
+              <authorization href="/Redirect">LOGIN</authorization>
             </button>
           </div>
         </div>
