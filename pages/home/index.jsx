@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeroPage from "../components/Hero";
 
-const {iam} = require('iam-sdk-frontend')
+const {iam} = require('iam-sdk')
 let CLIENT_ID = "64cca6634bb48b608d3bdf31";
 let CLIENT_SECRET = "$2b$04$VFIar.GWpZXLQqLk3sVoEehKdaHuU2JJoY6j5J.2g9AsHZFR8SkAu";
-let REDIRECT_URI = "http://localhost:4005/login-success";
+let REDIRECT_URI = "http://localhost:8081/login-success";
 let AUDIENCE = "http://localhost:8082";
 let SCOPE = "user:read user:create";
 
