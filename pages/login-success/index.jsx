@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import HeroPage from "../components/Hero";
 import { useRouter } from "next/router";
+import Dashboard from "../components/Dashboard";
+import Logout from "../components/Logout";
 
 const {iam} = require('iam-sdk')
 let CLIENT_ID = "64cca6634bb48b608d3bdf31";
@@ -68,8 +70,8 @@ const HomePage = () => {
 
   return (
     <div>
-      <Navbar iam={iam}/>
-      <HeroPage /> <div>
+      <Logout iam={iam}/>
+      <Dashboard /> <div>
       
   </div>
     
