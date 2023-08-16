@@ -22,50 +22,26 @@ const data = {
 
 iam.setup(data)
 
-function formEncode (payload) {
-  var obj = Object.entries(payload)
-  .map(([key, value]) => {
-      return `${encodeURIComponent(key.toLowerCase())}=${encodeURIComponent(value)}`
-  })
-  .join("&");
-  //console.log("OBJ ", obj);
-  return obj;
-}
-
-async function getAccessToken(authCode){
-  let payload = {
-    code: authCode,
-    grant_type: "authorization_code",
-    CLIENT_ID: CLIENT_ID,
-    CLIENT_SECRET: CLIENT_SECRET,
-    REDIRECT_URI: REDIRECT_URI,
-  }
-  console.log('formencode:' + formEncode(payload))
-  const response = await fetch(`https://api-oss.domain-dev.site/oauth/token`, {
-      method: 'POST',
-      body: formEncode(payload),
-      headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-      }
-  })
-  console.log('response:')
-  console.log(response)
-
-  const data = response.json()
-  console.log('data:')
-  console.log(data)
-  return response
-}
-
-
 
 const HomePage = () => {
   const router = useRouter()
   const code = router.query.code
   console.log(code)
-
-  const token = getAccessToken(code)
+  let token = ''
+  const res = iam.getAccessToken(code).then(result => {
+    console.log('result:')
+    console.log(result)
+    if('access_token' in result) {
+      console.log(result.access_token)
+      token = result.access_token
+    }
+  })
+  console.log('token:')
   console.log(token)
+
+  if(token != ''){
+    window.localStorage.setItem('access_token', token)
+  }
 
 
   return (

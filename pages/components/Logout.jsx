@@ -15,7 +15,7 @@ const Logout = ({iam}) => {
               role="link"
               type="button"
               className="block bg-red-500 px-4 py-2 font-bold hover:bg-red-600 text-sm rounded-lg"
-              onClick={() => {window.location.assign(`https://api-oss.domain-dev.site/signout?client_id=${encodeURIComponent("64cca6634bb48b608d3bdf31")}`)}}>
+              onClick={() => {window.location.assign(iam.logoutURL())}}>
               LOGOUT
             </button>
           </div>
