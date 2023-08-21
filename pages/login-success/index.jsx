@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import HeroPage from "../components/Hero";
 import { useRouter } from "next/router";
 import Dashboard from "../components/Dashboard";
-import Logout from "../components/Logout";
+import Logout from "../components/Logout"
 
 const {iam} = require('iam-sdk')
 let CLIENT_ID = "64cca6634bb48b608d3bdf31";
@@ -32,22 +32,34 @@ const HomePage = () => {
     console.log('result:')
     console.log(result)
     if('access_token' in result) {
-      console.log(result.access_token)
-      token = result.access_token
+      window.localStorage.setItem('access_token', result.access_token)
     }
   })
-  console.log('token:')
-  console.log(token)
+    const[data, setData] = useState('')
+    async function getData(){
+      let res = await fetch('https://iamclient-1-b8451256.deta.app/',{
+          method: 'GET',
+      })
+      .then(response => response.json())
 
-  if(token != ''){
-    window.localStorage.setItem('access_token', token)
+      return res
   }
 
+getData().then(d => {
+  if("message" in d) { 
+    setData(d.message)
+    window.localStorage.setItem('message', d.message)
+}
+
+  
+
+})
+console.log("data:"+data)
 
   return (
     <div>
       <Logout iam={iam}/>
-      <Dashboard /> <div>
+      <Dashboard data={data}/>  <div>
       
   </div>
     
