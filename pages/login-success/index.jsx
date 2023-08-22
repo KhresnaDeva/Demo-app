@@ -41,15 +41,34 @@ const HomePage = () => {
           method: 'GET',
       })
       .then(response => response.json())
-
       return res
   }
+
+//   async function postData(){
+//     let res = await fetch('https://iamclient-1-b8451256.deta.app/authenticated',{
+//         method: 'GET',
+//         headers: {
+//         'Authorization': "Bearer " + window.localStorage.getItem('access_token')
+//         }
+//     })
+//     .then(response => response.json())
+//     return res
+// }
+
+
+  
+
 
 getData().then(d => {
   if("message" in d) { 
     setData(d.message)
     window.localStorage.setItem('message', d.message)
 }
+
+// postData().then(p => { 
+//   console.log(p)
+//   }
+// )
 
   
 
