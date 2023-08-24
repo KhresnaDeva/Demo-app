@@ -35,7 +35,7 @@ const HomePage = () => {
       window.localStorage.setItem('access_token', result.access_token)
     }
   })
-    const[data, setData] = useState('')
+    const[data, setData] = useState([])
     async function getData(){
       let res = await fetch('https://iamclient-1-b8451256.deta.app/',{
           method: 'GET',
@@ -44,35 +44,39 @@ const HomePage = () => {
       return res
   }
 
-//   async function postData(){
-//     let res = await fetch('https://iamclient-1-b8451256.deta.app/authenticated',{
-//         method: 'GET',
-//         headers: {
-//         'Authorization': "Bearer " + window.localStorage.getItem('access_token')
-//         }
-//     })
-//     .then(response => response.json())
-//     return res
-// }
-
-
-  
-
-
-getData().then(d => {
-  if("message" in d) { 
-    setData(d.message)
-    window.localStorage.setItem('message', d.message)
+  async function postData(){
+    let res = await fetch('https://iamclient-1-b8451256.deta.app/authenticated',{
+        method: 'GET',
+        headers: {
+        'Authorization': "Bearer " + window.localStorage.getItem('access_token')
+        }
+    })
+    .then(response => response.json())
+    return res
 }
 
-// postData().then(p => { 
-//   console.log(p)
-//   }
-// )
 
   
 
-})
+
+// getData().then(d => {
+//   if("message" in d) { 
+//     setData(d.message)
+//     window.localStorage.setItem('message', d.message)
+// }
+
+useEffect(()=>{
+  postData().then(p => { 
+    console.log(p)
+     setData(p.data)
+    }
+  )
+
+}, [])
+
+  
+
+
 console.log("data:"+data)
 
   return (
