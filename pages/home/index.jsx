@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import HeroPage from "../components/Hero";
+
 
 const {iam} = require('iam-sdk')
 let CLIENT_ID = "64cca6634bb48b608d3bdf31";
@@ -27,11 +27,10 @@ const HomePage = () => {
   return (
     <div>
       <Navbar iam={iam}/>
-      <HeroPage /> <div>
+     
       
   </div>
     
-    </div>
   );
 };
 

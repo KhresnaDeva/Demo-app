@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import HeroPage from "../components/Hero";
+
 import { useRouter } from "next/router";
 import Dashboard from "../components/Dashboard";
 import Logout from "../components/Logout"
