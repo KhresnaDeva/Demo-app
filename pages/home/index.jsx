@@ -1,5 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
+import Navbar from "../../src/components/Navbar";
+import HeroPage from "../../src/components/Hero";
 
 
 const {iam} = require('iam-sdk')

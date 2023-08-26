@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Navbar = ({iam}) => {
+const Navbar = ({iam = null}) => {
   console.log(iam.redirect())
   return (
     <div>

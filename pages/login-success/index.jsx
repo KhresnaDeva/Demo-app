@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+
+import Navbar from "../../src/components/Navbar";
+import HeroPage from "../../src/components/Hero";
 
 import { useRouter } from "next/router";
-import Dashboard from "../components/Dashboard";
-import Logout from "../components/Logout"
+import Dashboard from "../../src/components/Dashboard";
+import Logout from "../../src/components/Logout"
 
 const {iam} = require('iam-sdk')
 let CLIENT_ID = "64cca6634bb48b608d3bdf31";
