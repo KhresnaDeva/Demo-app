@@ -81,6 +81,14 @@ useEffect(()=>{
 
 console.log("data:"+data)
 
+let authtoken = ""
+useEffect(() =>{
+  authtoken = window.localStorage.getItem("access_token")
+})
+if(authtoken == "") router.push("/")
+
+
+
   return (
     <div>
       <Logout iam={iam}/>
