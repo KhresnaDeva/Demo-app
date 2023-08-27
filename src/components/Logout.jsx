@@ -15,7 +15,11 @@ const Logout = ({iam = null}) => {
               role="link"
               type="button"
               className="block bg-red-500 px-4 py-2 font-bold hover:bg-red-600 text-sm rounded-lg"
-              onClick={() => {window.location.assign(iam.logoutURL())}}>
+              onClick={() => {
+                window.localStorage.removeItem("access_token")
+                window.location.assign(iam.logoutURL())
+                window.location.href = "/"
+                }}>
               LOGOUT
             </button>
           </div>
