@@ -67,6 +67,10 @@ const HomePage = () => {
 //     window.localStorage.setItem('message', d.message)
 // }
 
+
+
+
+
 useEffect(()=>{
   postData().then(p => { 
     console.log(p)
@@ -81,11 +85,6 @@ useEffect(()=>{
 
 console.log("data:"+data)
 
-let authtoken = ""
-useEffect(() =>{
-  authtoken = window.localStorage.getItem("access_token")
-})
-if(authtoken == "") window.location.assign("/")
 
 
 
