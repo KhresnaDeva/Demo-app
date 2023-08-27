@@ -85,7 +85,7 @@ let authtoken = ""
 useEffect(() =>{
   authtoken = window.localStorage.getItem("access_token")
 })
-if(authtoken == "") router.push("/")
+if(authtoken == "") window.location.assign("/")
 
 
 
